@@ -45,4 +45,11 @@ print('Before', a)
 a[:] = [101, 102, 103]
 assert a is b
 print('After', a)
-
+#Think about 2::2 vs -2::-2 vs -2:2:-2 vs 2:2:-2...
+#avoid using start, end and strid in a single slice
+a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+a[::2] #['c', 'e', 'g']
+a[-2::-2] #'g', 'e', 'c', 'a'
+a[-2:2:-2] #['g', 'e']
+a[2:2:-2] #[]
+#notice the pattern when slicing lists
